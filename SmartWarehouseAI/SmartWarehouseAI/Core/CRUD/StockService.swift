@@ -174,4 +174,86 @@ class StockService {
                 .deleteAll(db)
         }
     }
+
+    // MARK: - Join Queries
+
+    /// Fetch all stocks with their corresponding item details
+    func fetchAllWithItems() async throws -> [StockWithItem] {
+        guard let db = dbManager.getDatabase() else { return [] }
+
+        return try await db.read { db in
+            let request = Stock
+                .including(required: Stock.item)
+                .order(Column("quantity").asc)
+
+            let rows = try Row.fetchAll(db, request)
+
+            return try rows.map { row in
+                let stock = try Stock(row: row)
+                let item = try Item(row: row)
+                return StockWithItem(stock: stock, item: item)
+            }
+        }
+    }
+
+    /// Fetch stocks with items filtered by location
+    func fetchByLocationWithItems(_ location: String) async throws -> [StockWithItem] {
+        guard let db = dbManager.getDatabase() else { return [] }
+
+        return try await db.read { db in
+            let request = Stock
+                .filter(Column("location") == location)
+                .including(required: Stock.item)
+
+            let rows = try Row.fetchAll(db, request)
+
+            return try rows.map { row in
+                let stock = try Stock(row: row)
+                let item = try Item(row: row)
+                return StockWithItem(stock: stock, item: item)
+            }
+        }
+    }
+
+    /// Fetch low stock items with details
+    func fetchLowStockWithItems(threshold: Int? = nil) async throws -> [StockWithItem] {
+        guard let db = dbManager.getDatabase() else { return [] }
+
+        return try await db.read { db in
+            let request: QueryInterfaceRequest<Stock>
+
+            if let threshold = threshold {
+                request = Stock
+                    .filter(Column("quantity") <= threshold)
+                    .including(required: Stock.item)
+            } else {
+                request = Stock
+                    .filter(Column("minQuantity") != nil)
+                    .filter(Column("quantity") <= Column("minQuantity"))
+                    .including(required: Stock.item)
+            }
+
+            let rows = try Row.fetchAll(db, request)
+
+            return try rows.map { row in
+                let stock = try Stock(row: row)
+                let item = try Item(row: row)
+                return StockWithItem(stock: stock, item: item)
+            }
+        }
+    }
+
+    /// Get all unique locations
+    func fetchLocations() async throws -> [String] {
+        guard let db = dbManager.getDatabase() else { return [] }
+
+        return try await db.read { db in
+            try Stock
+                .select(Column("location"), as: String.self)
+                .distinct()
+                .filter(Column("location") != nil)
+                .order(Column("location").asc)
+                .fetchAll(db)
+        }
+    }
 }

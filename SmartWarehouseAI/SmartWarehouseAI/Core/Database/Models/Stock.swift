@@ -43,3 +43,77 @@ struct Stock: Codable, FetchableRecord, PersistableRecord, Identifiable {
 extension Stock {
     static let item = belongsTo(Item.self)
 }
+
+// MARK: - StockWithItem
+
+/// Combined model for displaying stock with item details
+struct StockWithItem: Identifiable {
+    let stock: Stock
+    let item: Item
+
+    var id: Int64? { stock.id }
+
+    var name: String { item.name }
+    var sku: String { item.sku }
+    var category: String? { item.category }
+    var quantity: Int { stock.quantity }
+    var location: String? { stock.location }
+    var minQuantity: Int? { stock.minQuantity }
+    var maxQuantity: Int? { stock.maxQuantity }
+    var updatedAt: Date { stock.updatedAt }
+
+    var isLowStock: Bool {
+        guard let minQty = minQuantity else { return false }
+        return quantity <= minQty
+    }
+
+    var isOutOfStock: Bool {
+        return quantity == 0
+    }
+
+    var isOverStock: Bool {
+        guard let maxQty = maxQuantity else { return false }
+        return quantity > maxQty
+    }
+
+    var stockStatus: StockStatus {
+        if isOutOfStock { return .outOfStock }
+        if isLowStock { return .low }
+        if isOverStock { return .high }
+        return .normal
+    }
+}
+
+enum StockStatus {
+    case outOfStock
+    case low
+    case normal
+    case high
+
+    var color: String {
+        switch self {
+        case .outOfStock: return "red"
+        case .low: return "orange"
+        case .normal: return "green"
+        case .high: return "blue"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .outOfStock: return "xmark.circle.fill"
+        case .low: return "exclamationmark.triangle.fill"
+        case .normal: return "checkmark.circle.fill"
+        case .high: return "arrow.up.circle.fill"
+        }
+    }
+
+    var label: String {
+        switch self {
+        case .outOfStock: return "Out of Stock"
+        case .low: return "Low Stock"
+        case .normal: return "Normal"
+        case .high: return "Overstock"
+        }
+    }
+}

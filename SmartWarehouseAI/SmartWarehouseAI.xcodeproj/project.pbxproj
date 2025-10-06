@@ -38,6 +38,8 @@
 		1A000001000000000000001D /* VectorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000001000000000000001C /* VectorStore.swift */; };
 		1A000001000000000000001E /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000001000000000000001D /* SearchService.swift */; };
 		1A000001000000000000001F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000001000000000000001E /* SearchViewModel.swift */; };
+		B0BA8F242E942FAD001C9C8E /* StockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F232E942FAD001C9C8E /* StockDetailView.swift */; };
+		B0BA8F262E942FC5001C9C8E /* AddStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F252E942FC5001C9C8E /* AddStockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		2A000001000000000000001D /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		2A000001000000000000001E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		4A0000010000000000000001 /* SmartWarehouseAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartWarehouseAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0BA8F232E942FAD001C9C8E /* StockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailView.swift; sourceTree = "<group>"; };
+		B0BA8F252E942FC5001C9C8E /* AddStockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		6A0000010000000000000005 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B0BA8F252E942FC5001C9C8E /* AddStockView.swift */,
+				B0BA8F232E942FAD001C9C8E /* StockDetailView.swift */,
 				2A0000010000000000000004 /* DashboardView.swift */,
 				2A0000010000000000000005 /* ItemsView.swift */,
 				2A0000010000000000000006 /* InventoryView.swift */,
@@ -312,6 +318,7 @@
 				1A000001000000000000000D /* Part.swift in Sources */,
 				1A000001000000000000000E /* KeychainHelper.swift in Sources */,
 				1A0000010000000000000012 /* ItemService.swift in Sources */,
+				B0BA8F242E942FAD001C9C8E /* StockDetailView.swift in Sources */,
 				1A0000010000000000000013 /* StockService.swift in Sources */,
 				1A0000010000000000000014 /* KitService.swift in Sources */,
 				1A0000010000000000000015 /* InventoryLogic.swift in Sources */,
@@ -322,6 +329,7 @@
 				1A000001000000000000001A /* PDFImportView.swift in Sources */,
 				1A000001000000000000001B /* FTS5Search.swift in Sources */,
 				1A000001000000000000001C /* EmbeddingEngine.swift in Sources */,
+				B0BA8F262E942FC5001C9C8E /* AddStockView.swift in Sources */,
 				1A000001000000000000001D /* VectorStore.swift in Sources */,
 				1A000001000000000000001E /* SearchService.swift in Sources */,
 				1A000001000000000000001F /* SearchViewModel.swift in Sources */,
