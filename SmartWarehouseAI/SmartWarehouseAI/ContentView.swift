@@ -24,17 +24,23 @@ struct ContentView: View {
                 }
                 .tag(2)
 
+            KitsView()
+                .tabItem {
+                    Label("Kits", systemImage: "cube.box.fill")
+                }
+                .tag(3)
+
             SearchView()
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
-                .tag(3)
+                .tag(4)
 
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-                .tag(4)
+                .tag(5)
         }
     }
 }

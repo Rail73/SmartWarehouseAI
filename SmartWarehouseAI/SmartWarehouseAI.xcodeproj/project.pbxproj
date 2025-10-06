@@ -40,6 +40,9 @@
 		1A000001000000000000001F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000001000000000000001E /* SearchViewModel.swift */; };
 		B0BA8F242E942FAD001C9C8E /* StockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F232E942FAD001C9C8E /* StockDetailView.swift */; };
 		B0BA8F262E942FC5001C9C8E /* AddStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F252E942FC5001C9C8E /* AddStockView.swift */; };
+		B0BA8F282E943001001C9C8E /* KitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F272E943001001C9C8E /* KitsView.swift */; };
+		B0BA8F2A2E943002001C9C8E /* KitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F292E943002001C9C8E /* KitDetailView.swift */; };
+		B0BA8F2C2E943003001C9C8E /* AddKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F2B2E943003001C9C8E /* AddKitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		4A0000010000000000000001 /* SmartWarehouseAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartWarehouseAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BA8F232E942FAD001C9C8E /* StockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailView.swift; sourceTree = "<group>"; };
 		B0BA8F252E942FC5001C9C8E /* AddStockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockView.swift; sourceTree = "<group>"; };
+		B0BA8F272E943001001C9C8E /* KitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitsView.swift; sourceTree = "<group>"; };
+		B0BA8F292E943002001C9C8E /* KitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitDetailView.swift; sourceTree = "<group>"; };
+		B0BA8F2B2E943003001C9C8E /* AddKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,9 @@
 			children = (
 				B0BA8F252E942FC5001C9C8E /* AddStockView.swift */,
 				B0BA8F232E942FAD001C9C8E /* StockDetailView.swift */,
+				B0BA8F272E943001001C9C8E /* KitsView.swift */,
+				B0BA8F292E943002001C9C8E /* KitDetailView.swift */,
+				B0BA8F2B2E943003001C9C8E /* AddKitView.swift */,
 				2A0000010000000000000004 /* DashboardView.swift */,
 				2A0000010000000000000005 /* ItemsView.swift */,
 				2A0000010000000000000006 /* InventoryView.swift */,
@@ -333,6 +342,9 @@
 				1A000001000000000000001D /* VectorStore.swift in Sources */,
 				1A000001000000000000001E /* SearchService.swift in Sources */,
 				1A000001000000000000001F /* SearchViewModel.swift in Sources */,
+				B0BA8F282E943001001C9C8E /* KitsView.swift in Sources */,
+				B0BA8F2A2E943002001C9C8E /* KitDetailView.swift in Sources */,
+				B0BA8F2C2E943003001C9C8E /* AddKitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
