@@ -43,6 +43,10 @@
 		B0BA8F282E943001001C9C8E /* KitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F272E943001001C9C8E /* KitsView.swift */; };
 		B0BA8F2A2E943002001C9C8E /* KitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F292E943002001C9C8E /* KitDetailView.swift */; };
 		B0BA8F2C2E943003001C9C8E /* AddKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F2B2E943003001C9C8E /* AddKitView.swift */; };
+		AF80B0D52E943100001C9C8E /* QRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80B0D42E943100001C9C8E /* QRManager.swift */; };
+		17A575322E943101001C9C8E /* BarcodeScannerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A575312E943101001C9C8E /* BarcodeScannerManager.swift */; };
+		FE4995592E943102001C9C8E /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4995582E943102001C9C8E /* QRCodeView.swift */; };
+		30FA959D2E943103001C9C8E /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA959C2E943103001C9C8E /* BarcodeScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +86,10 @@
 		B0BA8F272E943001001C9C8E /* KitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitsView.swift; sourceTree = "<group>"; };
 		B0BA8F292E943002001C9C8E /* KitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitDetailView.swift; sourceTree = "<group>"; };
 		B0BA8F2B2E943003001C9C8E /* AddKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKitView.swift; sourceTree = "<group>"; };
+		AF80B0D42E943100001C9C8E /* QRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRManager.swift; sourceTree = "<group>"; };
+		17A575312E943101001C9C8E /* BarcodeScannerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerManager.swift; sourceTree = "<group>"; };
+		FE4995582E943102001C9C8E /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		30FA959C2E943103001C9C8E /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,8 @@
 				B0BA8F272E943001001C9C8E /* KitsView.swift */,
 				B0BA8F292E943002001C9C8E /* KitDetailView.swift */,
 				B0BA8F2B2E943003001C9C8E /* AddKitView.swift */,
+				FE4995582E943102001C9C8E /* QRCodeView.swift */,
+				30FA959C2E943103001C9C8E /* BarcodeScannerView.swift */,
 				2A0000010000000000000004 /* DashboardView.swift */,
 				2A0000010000000000000005 /* ItemsView.swift */,
 				2A0000010000000000000006 /* InventoryView.swift */,
@@ -231,6 +241,8 @@
 				2A0000010000000000000016 /* TableBasedPDFParser.swift */,
 				2A0000010000000000000017 /* OCRBasedPDFParser.swift */,
 				2A0000010000000000000018 /* PDFImportService.swift */,
+				AF80B0D42E943100001C9C8E /* QRManager.swift */,
+				17A575312E943101001C9C8E /* BarcodeScannerManager.swift */,
 			);
 			path = Integrations;
 			sourceTree = "<group>";
@@ -345,6 +357,10 @@
 				B0BA8F282E943001001C9C8E /* KitsView.swift in Sources */,
 				B0BA8F2A2E943002001C9C8E /* KitDetailView.swift in Sources */,
 				B0BA8F2C2E943003001C9C8E /* AddKitView.swift in Sources */,
+				AF80B0D52E943100001C9C8E /* QRManager.swift in Sources */,
+				17A575322E943101001C9C8E /* BarcodeScannerManager.swift in Sources */,
+				FE4995592E943102001C9C8E /* QRCodeView.swift in Sources */,
+				30FA959D2E943103001C9C8E /* BarcodeScannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
