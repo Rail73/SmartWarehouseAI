@@ -66,6 +66,16 @@ class DatabaseManager {
                 t.column("updatedAt", .datetime).notNull()
             }
 
+            // Migration: Add warehouseId to existing stocks table
+            if try db.tableExists("stocks") {
+                let hasWarehouseId = try db.columns(in: "stocks").contains { $0.name == "warehouseId" }
+                if !hasWarehouseId {
+                    try db.alter(table: "stocks") { t in
+                        t.add(column: "warehouseId", .integer)
+                    }
+                }
+            }
+
             // Create Kits table
             try db.create(table: "kits", ifNotExists: true) { t in
                 t.autoIncrementedPrimaryKey("id")
