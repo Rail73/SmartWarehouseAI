@@ -1,10 +1,13 @@
 import SwiftUI
 
 struct ItemsView: View {
+    @Binding var navigationTarget: ContentView.NavigationTarget?
     @State private var items: [Item] = []
     @State private var searchText = ""
     @State private var showingAddItem = false
     @State private var showingPDFImport = false
+    @State private var selectedItemId: Int64?
+    @State private var isNavigatingToItem = false
 
     var filteredItems: [Item] {
         if searchText.isEmpty {
@@ -16,12 +19,25 @@ struct ItemsView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(filteredItems) { item in
-                    NavigationLink(destination: ItemDetailView(itemId: item.id!)) {
-                        ItemRow(item: item)
+            ZStack {
+                List {
+                    ForEach(filteredItems.filter { $0.id != nil }) { item in
+                        if let itemId = item.id {
+                            NavigationLink(destination: ItemDetailView(itemId: itemId)) {
+                                ItemRow(item: item)
+                            }
+                        }
                     }
                 }
+
+                // Hidden NavigationLink for programmatic navigation
+                NavigationLink(
+                    destination: selectedItemId.map { ItemDetailView(itemId: $0) },
+                    isActive: $isNavigatingToItem
+                ) {
+                    EmptyView()
+                }
+                .hidden()
             }
             .searchable(text: $searchText, prompt: "Search items")
             .navigationTitle("Items")
@@ -55,6 +71,13 @@ struct ItemsView: View {
             }
             .onAppear {
                 loadItems()
+            }
+            .onChange(of: navigationTarget) { target in
+                if case .item(let itemId) = target {
+                    selectedItemId = itemId
+                    isNavigatingToItem = true
+                    navigationTarget = nil
+                }
             }
         }
     }
@@ -170,6 +193,6 @@ struct AddItemView: View {
 
 struct ItemsView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemsView()
+        ItemsView(navigationTarget: .constant(nil))
     }
 }

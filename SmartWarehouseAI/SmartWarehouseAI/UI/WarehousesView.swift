@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct WarehousesView: View {
+    @Binding var navigationTarget: ContentView.NavigationTarget?
     @StateObject private var viewModel = WarehousesViewModel()
     @State private var showingAddWarehouse = false
     @State private var searchText = ""
+    @State private var selectedWarehouseId: Int64?
+    @State private var isNavigatingToWarehouse = false
 
     var body: some View {
         NavigationView {
+            ZStack {
             List {
                 // Summary Section
                 if !viewModel.warehouses.isEmpty {
@@ -76,9 +80,11 @@ struct WarehousesView: View {
                             .padding()
                         }
                     } else {
-                        ForEach(filteredWarehouses) { warehouse in
-                            NavigationLink(destination: WarehouseDetailView(warehouseId: warehouse.id!)) {
-                                WarehouseRow(warehouse: warehouse)
+                        ForEach(filteredWarehouses.filter { $0.id != nil }) { warehouse in
+                            if let warehouseId = warehouse.id {
+                                NavigationLink(destination: WarehouseDetailView(warehouseId: warehouseId)) {
+                                    WarehouseRow(warehouse: warehouse)
+                                }
                             }
                         }
                         .onDelete(perform: deleteWarehouses)
@@ -86,6 +92,16 @@ struct WarehousesView: View {
                 } header: {
                     Text("Warehouses")
                 }
+            }
+
+                // Hidden NavigationLink for programmatic navigation
+                NavigationLink(
+                    destination: selectedWarehouseId.map { WarehouseDetailView(warehouseId: $0) },
+                    isActive: $isNavigatingToWarehouse
+                ) {
+                    EmptyView()
+                }
+                .hidden()
             }
             .navigationTitle("Warehouses")
             .searchable(text: $searchText, prompt: "Search warehouses")
@@ -117,6 +133,13 @@ struct WarehousesView: View {
             }
             .refreshable {
                 await viewModel.loadWarehouses()
+            }
+            .onChange(of: navigationTarget) { target in
+                if case .warehouse(let warehouseId) = target {
+                    selectedWarehouseId = warehouseId
+                    isNavigatingToWarehouse = true
+                    navigationTarget = nil
+                }
             }
         }
     }
@@ -239,6 +262,6 @@ class WarehousesViewModel: ObservableObject {
 
 struct WarehousesView_Previews: PreviewProvider {
     static var previews: some View {
-        WarehousesView()
+        WarehousesView(navigationTarget: .constant(nil))
     }
 }

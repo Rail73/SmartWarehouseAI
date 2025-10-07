@@ -4,6 +4,13 @@ struct ContentView: View {
     @EnvironmentObject var appSettings: AppSettings
     @State private var selectedTab = 0
     @State private var showingScanner = false
+    @State private var navigationTarget: NavigationTarget?
+
+    enum NavigationTarget: Hashable {
+        case item(Int64)
+        case warehouse(Int64)
+        case kit(Int64)
+    }
 
     var body: some View {
         ZStack {
@@ -14,19 +21,19 @@ struct ContentView: View {
                     }
                     .tag(0)
 
-                ItemsView()
+                ItemsView(navigationTarget: $navigationTarget)
                     .tabItem {
                         Label("Items", systemImage: "cube.fill")
                     }
                     .tag(1)
 
-                WarehousesView()
+                WarehousesView(navigationTarget: $navigationTarget)
                     .tabItem {
                         Label("Warehouses", systemImage: "building.2.fill")
                     }
                     .tag(2)
 
-                KitsView()
+                KitsView(navigationTarget: $navigationTarget)
                     .tabItem {
                         Label("Kits", systemImage: "cube.box.fill")
                     }
@@ -77,19 +84,38 @@ struct ContentView: View {
             // Navigate to appropriate view based on QR type
             switch qrData.type {
             case .item(let itemId):
-                // TODO: Navigate to ItemDetailView
-                print("Navigate to Item: \(itemId)")
+                navigationTarget = .item(itemId)
+                selectedTab = 1 // Items tab
             case .warehouse(let warehouseId):
-                // TODO: Navigate to WarehouseDetailView
-                print("Navigate to Warehouse: \(warehouseId)")
+                navigationTarget = .warehouse(warehouseId)
+                selectedTab = 2 // Warehouses tab
             case .kit(let kitId):
-                // TODO: Navigate to KitDetailView
-                print("Navigate to Kit: \(kitId)")
+                navigationTarget = .kit(kitId)
+                selectedTab = 3 // Kits tab
             }
         } else {
             // Try to find item by barcode
-            print("Search item by barcode: \(result)")
-            // TODO: Search and navigate to item
+            Task {
+                await searchItemByBarcode(result)
+            }
+        }
+    }
+
+    private func searchItemByBarcode(_ barcode: String) async {
+        let itemService = ItemService()
+
+        do {
+            let items = try await itemService.fetchAll()
+            if let foundItem = items.first(where: { $0.barcode == barcode }) {
+                await MainActor.run {
+                    navigationTarget = .item(foundItem.id!)
+                    selectedTab = 1 // Items tab
+                }
+            } else {
+                print("No item found with barcode: \(barcode)")
+            }
+        } catch {
+            print("Error searching for item: \(error)")
         }
     }
 }

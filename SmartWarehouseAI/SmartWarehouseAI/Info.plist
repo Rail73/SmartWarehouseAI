@@ -48,5 +48,7 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera access is required to scan barcodes and QR codes for quick inventory lookup.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Photo library access is needed to save QR codes for items and warehouses.</string>
 </dict>
 </plist>

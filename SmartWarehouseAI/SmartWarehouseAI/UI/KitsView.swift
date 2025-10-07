@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct KitsView: View {
+    @Binding var navigationTarget: ContentView.NavigationTarget?
     @StateObject private var viewModel = KitsViewModel()
     @State private var showingAddKit = false
+    @State private var selectedKitId: Int64?
+    @State private var isNavigatingToKit = false
 
     var body: some View {
         NavigationView {
+            ZStack {
             Group {
                 if viewModel.isLoading {
                     ProgressView("Loading kits...")
@@ -62,9 +66,11 @@ struct KitsView: View {
 
                         // Kits List
                         Section {
-                            ForEach(viewModel.filteredKits) { kitInfo in
-                                NavigationLink(destination: KitDetailView(kitId: kitInfo.kit.id!)) {
-                                    KitRow(kitInfo: kitInfo)
+                            ForEach(viewModel.filteredKits.filter { $0.kit.id != nil }) { kitInfo in
+                                if let kitId = kitInfo.kit.id {
+                                    NavigationLink(destination: KitDetailView(kitId: kitId)) {
+                                        KitRow(kitInfo: kitInfo)
+                                    }
                                 }
                             }
                         } header: {
@@ -77,6 +83,16 @@ struct KitsView: View {
                         }
                     }
                 }
+            }
+
+                // Hidden NavigationLink for programmatic navigation
+                NavigationLink(
+                    destination: selectedKitId.map { KitDetailView(kitId: $0) },
+                    isActive: $isNavigatingToKit
+                ) {
+                    EmptyView()
+                }
+                .hidden()
             }
             .navigationTitle("Kits")
             .searchable(text: $viewModel.searchText, prompt: "Search kits...")
@@ -103,6 +119,13 @@ struct KitsView: View {
                     Task {
                         await viewModel.refresh()
                     }
+                }
+            }
+            .onChange(of: navigationTarget) { target in
+                if case .kit(let kitId) = target {
+                    selectedKitId = kitId
+                    isNavigatingToKit = true
+                    navigationTarget = nil
                 }
             }
         }
@@ -260,6 +283,6 @@ class KitsViewModel: ObservableObject {
 
 struct KitsView_Previews: PreviewProvider {
     static var previews: some View {
-        KitsView()
+        KitsView(navigationTarget: .constant(nil))
     }
 }
