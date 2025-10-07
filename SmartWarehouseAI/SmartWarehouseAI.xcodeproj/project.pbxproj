@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17A575322E943101001C9C8E /* BarcodeScannerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A575312E943101001C9C8E /* BarcodeScannerManager.swift */; };
 		1A0000010000000000000001 /* SmartWarehouseAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000010000000000000001 /* SmartWarehouseAIApp.swift */; };
 		1A0000010000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000010000000000000002 /* ContentView.swift */; };
 		1A0000010000000000000003 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000010000000000000003 /* AppSettings.swift */; };
@@ -38,18 +39,25 @@
 		1A000001000000000000001D /* VectorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000001000000000000001C /* VectorStore.swift */; };
 		1A000001000000000000001E /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000001000000000000001D /* SearchService.swift */; };
 		1A000001000000000000001F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000001000000000000001E /* SearchViewModel.swift */; };
+		30FA959D2E943103001C9C8E /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA959C2E943103001C9C8E /* BarcodeScannerView.swift */; };
+		AF80B0D52E943100001C9C8E /* QRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80B0D42E943100001C9C8E /* QRManager.swift */; };
 		B0BA8F242E942FAD001C9C8E /* StockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F232E942FAD001C9C8E /* StockDetailView.swift */; };
 		B0BA8F262E942FC5001C9C8E /* AddStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F252E942FC5001C9C8E /* AddStockView.swift */; };
 		B0BA8F282E943001001C9C8E /* KitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F272E943001001C9C8E /* KitsView.swift */; };
+		B0BA8F282E94D0BD001C9C8E /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F272E94D0BD001C9C8E /* ItemDetailView.swift */; };
 		B0BA8F2A2E943002001C9C8E /* KitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F292E943002001C9C8E /* KitDetailView.swift */; };
+		B0BA8F2A2E94D0D9001C9C8E /* WarehousesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F292E94D0D9001C9C8E /* WarehousesView.swift */; };
 		B0BA8F2C2E943003001C9C8E /* AddKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F2B2E943003001C9C8E /* AddKitView.swift */; };
-		AF80B0D52E943100001C9C8E /* QRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80B0D42E943100001C9C8E /* QRManager.swift */; };
-		17A575322E943101001C9C8E /* BarcodeScannerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A575312E943101001C9C8E /* BarcodeScannerManager.swift */; };
+		B0BA8F2C2E94D0E9001C9C8E /* WarehouseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F2B2E94D0E9001C9C8E /* WarehouseDetailView.swift */; };
+		B0BA8F2E2E94D12D001C9C8E /* Warehouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F2D2E94D12D001C9C8E /* Warehouse.swift */; };
+		B0BA8F302E94D14C001C9C8E /* FloatingScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F2F2E94D14C001C9C8E /* FloatingScanButton.swift */; };
+		B0BA8F322E94D156001C9C8E /* AddWarehouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F312E94D156001C9C8E /* AddWarehouseView.swift */; };
+		B0BA8F342E94D1FB001C9C8E /* WarehouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA8F332E94D1FB001C9C8E /* WarehouseService.swift */; };
 		FE4995592E943102001C9C8E /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4995582E943102001C9C8E /* QRCodeView.swift */; };
-		30FA959D2E943103001C9C8E /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA959C2E943103001C9C8E /* BarcodeScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17A575312E943101001C9C8E /* BarcodeScannerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerManager.swift; sourceTree = "<group>"; };
 		2A0000010000000000000001 /* SmartWarehouseAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartWarehouseAIApp.swift; sourceTree = "<group>"; };
 		2A0000010000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2A0000010000000000000003 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
@@ -80,16 +88,22 @@
 		2A000001000000000000001C /* VectorStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorStore.swift; sourceTree = "<group>"; };
 		2A000001000000000000001D /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		2A000001000000000000001E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		30FA959C2E943103001C9C8E /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		4A0000010000000000000001 /* SmartWarehouseAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartWarehouseAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF80B0D42E943100001C9C8E /* QRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRManager.swift; sourceTree = "<group>"; };
 		B0BA8F232E942FAD001C9C8E /* StockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailView.swift; sourceTree = "<group>"; };
 		B0BA8F252E942FC5001C9C8E /* AddStockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockView.swift; sourceTree = "<group>"; };
 		B0BA8F272E943001001C9C8E /* KitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitsView.swift; sourceTree = "<group>"; };
+		B0BA8F272E94D0BD001C9C8E /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		B0BA8F292E943002001C9C8E /* KitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitDetailView.swift; sourceTree = "<group>"; };
+		B0BA8F292E94D0D9001C9C8E /* WarehousesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehousesView.swift; sourceTree = "<group>"; };
 		B0BA8F2B2E943003001C9C8E /* AddKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKitView.swift; sourceTree = "<group>"; };
-		AF80B0D42E943100001C9C8E /* QRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRManager.swift; sourceTree = "<group>"; };
-		17A575312E943101001C9C8E /* BarcodeScannerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerManager.swift; sourceTree = "<group>"; };
+		B0BA8F2B2E94D0E9001C9C8E /* WarehouseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseDetailView.swift; sourceTree = "<group>"; };
+		B0BA8F2D2E94D12D001C9C8E /* Warehouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warehouse.swift; sourceTree = "<group>"; };
+		B0BA8F2F2E94D14C001C9C8E /* FloatingScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingScanButton.swift; sourceTree = "<group>"; };
+		B0BA8F312E94D156001C9C8E /* AddWarehouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWarehouseView.swift; sourceTree = "<group>"; };
+		B0BA8F332E94D1FB001C9C8E /* WarehouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseService.swift; sourceTree = "<group>"; };
 		FE4995582E943102001C9C8E /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
-		30FA959C2E943103001C9C8E /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +160,11 @@
 		6A0000010000000000000005 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B0BA8F312E94D156001C9C8E /* AddWarehouseView.swift */,
+				B0BA8F2F2E94D14C001C9C8E /* FloatingScanButton.swift */,
+				B0BA8F2B2E94D0E9001C9C8E /* WarehouseDetailView.swift */,
+				B0BA8F272E94D0BD001C9C8E /* ItemDetailView.swift */,
+				B0BA8F292E94D0D9001C9C8E /* WarehousesView.swift */,
 				B0BA8F252E942FC5001C9C8E /* AddStockView.swift */,
 				B0BA8F232E942FAD001C9C8E /* StockDetailView.swift */,
 				B0BA8F272E943001001C9C8E /* KitsView.swift */,
@@ -189,6 +208,7 @@
 		6A0000010000000000000008 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B0BA8F2D2E94D12D001C9C8E /* Warehouse.swift */,
 				2A000001000000000000000A /* Item.swift */,
 				2A000001000000000000000B /* Stock.swift */,
 				2A000001000000000000000C /* Kit.swift */,
@@ -208,6 +228,7 @@
 		6A000001000000000000000A /* CRUD */ = {
 			isa = PBXGroup;
 			children = (
+				B0BA8F332E94D1FB001C9C8E /* WarehouseService.swift */,
 				2A0000010000000000000011 /* ItemService.swift */,
 				2A0000010000000000000012 /* StockService.swift */,
 				2A0000010000000000000013 /* KitService.swift */,
@@ -328,13 +349,16 @@
 				1A0000010000000000000002 /* ContentView.swift in Sources */,
 				1A0000010000000000000003 /* AppSettings.swift in Sources */,
 				1A0000010000000000000004 /* DashboardView.swift in Sources */,
+				B0BA8F322E94D156001C9C8E /* AddWarehouseView.swift in Sources */,
 				1A0000010000000000000005 /* ItemsView.swift in Sources */,
 				1A0000010000000000000006 /* InventoryView.swift in Sources */,
 				1A0000010000000000000007 /* SearchView.swift in Sources */,
 				1A0000010000000000000008 /* SettingsView.swift in Sources */,
 				1A0000010000000000000009 /* DatabaseManager.swift in Sources */,
 				1A000001000000000000000A /* Item.swift in Sources */,
+				B0BA8F282E94D0BD001C9C8E /* ItemDetailView.swift in Sources */,
 				1A000001000000000000000B /* Stock.swift in Sources */,
+				B0BA8F342E94D1FB001C9C8E /* WarehouseService.swift in Sources */,
 				1A000001000000000000000C /* Kit.swift in Sources */,
 				1A000001000000000000000D /* Part.swift in Sources */,
 				1A000001000000000000000E /* KeychainHelper.swift in Sources */,
@@ -344,6 +368,7 @@
 				1A0000010000000000000014 /* KitService.swift in Sources */,
 				1A0000010000000000000015 /* InventoryLogic.swift in Sources */,
 				1A0000010000000000000016 /* PDFParserTypes.swift in Sources */,
+				B0BA8F2E2E94D12D001C9C8E /* Warehouse.swift in Sources */,
 				1A0000010000000000000017 /* TableBasedPDFParser.swift in Sources */,
 				1A0000010000000000000018 /* OCRBasedPDFParser.swift in Sources */,
 				1A0000010000000000000019 /* PDFImportService.swift in Sources */,
@@ -355,10 +380,13 @@
 				1A000001000000000000001E /* SearchService.swift in Sources */,
 				1A000001000000000000001F /* SearchViewModel.swift in Sources */,
 				B0BA8F282E943001001C9C8E /* KitsView.swift in Sources */,
+				B0BA8F2A2E94D0D9001C9C8E /* WarehousesView.swift in Sources */,
+				B0BA8F302E94D14C001C9C8E /* FloatingScanButton.swift in Sources */,
 				B0BA8F2A2E943002001C9C8E /* KitDetailView.swift in Sources */,
 				B0BA8F2C2E943003001C9C8E /* AddKitView.swift in Sources */,
 				AF80B0D52E943100001C9C8E /* QRManager.swift in Sources */,
 				17A575322E943101001C9C8E /* BarcodeScannerManager.swift in Sources */,
+				B0BA8F2C2E94D0E9001C9C8E /* WarehouseDetailView.swift in Sources */,
 				FE4995592E943102001C9C8E /* QRCodeView.swift in Sources */,
 				30FA959D2E943103001C9C8E /* BarcodeScannerView.swift in Sources */,
 			);

@@ -64,6 +64,7 @@ class QRManager {
     enum QRCodeType {
         case item(Int64)
         case kit(Int64)
+        case warehouse(Int64)
 
         var urlString: String {
             switch self {
@@ -71,6 +72,8 @@ class QRManager {
                 return "swai://item/\(id)"
             case .kit(let id):
                 return "swai://kit/\(id)"
+            case .warehouse(let id):
+                return "swai://warehouse/\(id)"
             }
         }
 
@@ -80,6 +83,8 @@ class QRManager {
                 return "item:\(id)"
             case .kit(let id):
                 return "kit:\(id)"
+            case .warehouse(let id):
+                return "warehouse:\(id)"
             }
         }
     }
@@ -153,6 +158,8 @@ class QRManager {
             type = .item(id)
         case "kit":
             type = .kit(id)
+        case "warehouse":
+            type = .warehouse(id)
         default:
             return nil
         }

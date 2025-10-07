@@ -13,7 +13,6 @@ struct KitDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var showingAssembly = false
     @State private var showingDisassembly = false
-    @State private var showingQRCode = false
 
     init(kitId: Int64) {
         self.kitId = kitId
@@ -121,15 +120,6 @@ struct KitDetailView: View {
                             Text("Disassemble Kit")
                         }
                     }
-
-                    Button {
-                        showingQRCode = true
-                    } label: {
-                        HStack {
-                            Image(systemName: "qrcode")
-                            Text("Show QR Code")
-                        }
-                    }
                 } header: {
                     Text("Actions")
                 }
@@ -179,12 +169,6 @@ struct KitDetailView: View {
                     await viewModel.refresh()
                 }
             }
-        }
-        .sheet(isPresented: $showingQRCode) {
-            QRCodeView(
-                qrType: .kit(kitId),
-                title: "Kit QR Code"
-            )
         }
         .alert("Error", isPresented: $viewModel.showError) {
             Button("OK", role: .cancel) { }

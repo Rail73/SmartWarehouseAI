@@ -5,7 +5,8 @@ struct Stock: Codable, FetchableRecord, PersistableRecord, Identifiable {
     var id: Int64?
     var itemId: Int64
     var quantity: Int
-    var location: String?
+    var warehouseId: Int64?
+    var location: String? // Deprecated: use warehouseId instead, kept for migration
     var minQuantity: Int?
     var maxQuantity: Int?
     var updatedAt: Date
@@ -16,6 +17,7 @@ struct Stock: Codable, FetchableRecord, PersistableRecord, Identifiable {
         id: Int64? = nil,
         itemId: Int64,
         quantity: Int,
+        warehouseId: Int64? = nil,
         location: String? = nil,
         minQuantity: Int? = nil,
         maxQuantity: Int? = nil,
@@ -24,6 +26,7 @@ struct Stock: Codable, FetchableRecord, PersistableRecord, Identifiable {
         self.id = id
         self.itemId = itemId
         self.quantity = quantity
+        self.warehouseId = warehouseId
         self.location = location
         self.minQuantity = minQuantity
         self.maxQuantity = maxQuantity
@@ -42,6 +45,7 @@ struct Stock: Codable, FetchableRecord, PersistableRecord, Identifiable {
 
 extension Stock {
     static let item = belongsTo(Item.self)
+    static let warehouse = belongsTo(Warehouse.self)
 }
 
 // MARK: - StockWithItem

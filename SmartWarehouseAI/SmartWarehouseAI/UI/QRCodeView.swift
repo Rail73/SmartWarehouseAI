@@ -39,11 +39,11 @@ struct QRCodeView: View {
                 .foregroundColor(.secondary)
 
             // Action buttons
-            HStack(spacing: 20) {
+            VStack(spacing: 12) {
                 Button {
                     showingShareSheet = true
                 } label: {
-                    Label("Share", systemImage: "square.and.arrow.up")
+                    Label("Share QR Code", systemImage: "square.and.arrow.up")
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -52,6 +52,53 @@ struct QRCodeView: View {
                         .cornerRadius(10)
                 }
                 .disabled(qrImage == nil)
+
+                Button {
+                    if let qrImage = qrImage {
+                        saveToPhotos(qrImage)
+                    }
+                } label: {
+                    Label("Save to Photos", systemImage: "photo")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.green)
+                        .cornerRadius(10)
+                }
+                .disabled(qrImage == nil)
+
+                if case .item = qrType {
+                    Button {
+                        if let qrImage = qrImage {
+                            printQRCode(qrImage)
+                        }
+                    } label: {
+                        Label("Print Label", systemImage: "printer")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.purple)
+                            .cornerRadius(10)
+                    }
+                    .disabled(qrImage == nil)
+                } else if case .warehouse = qrType {
+                    Button {
+                        if let qrImage = qrImage {
+                            printQRCode(qrImage)
+                        }
+                    } label: {
+                        Label("Print Label", systemImage: "printer")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.purple)
+                            .cornerRadius(10)
+                    }
+                    .disabled(qrImage == nil)
+                }
             }
             .padding(.horizontal)
 
@@ -74,6 +121,21 @@ struct QRCodeView: View {
                 self.qrImage = image
             }
         }
+    }
+
+    private func saveToPhotos(_ image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
+
+    private func printQRCode(_ image: UIImage) {
+        let printController = UIPrintInteractionController.shared
+        let printInfo = UIPrintInfo(dictionary: nil)
+        printInfo.outputType = .general
+        printInfo.jobName = "QR Code"
+
+        printController.printInfo = printInfo
+        printController.printingItem = image
+        printController.present(animated: true)
     }
 }
 

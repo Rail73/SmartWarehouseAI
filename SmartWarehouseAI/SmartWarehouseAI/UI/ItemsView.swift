@@ -18,7 +18,9 @@ struct ItemsView: View {
         NavigationView {
             List {
                 ForEach(filteredItems) { item in
-                    ItemRow(item: item)
+                    NavigationLink(destination: ItemDetailView(itemId: item.id!)) {
+                        ItemRow(item: item)
+                    }
                 }
             }
             .searchable(text: $searchText, prompt: "Search items")

@@ -2,7 +2,6 @@ import SwiftUI
 
 struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
-    @State private var showingScanner = false
 
     var body: some View {
         NavigationView {
@@ -48,14 +47,6 @@ struct SearchView: View {
             }
             .navigationTitle("Search")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        showingScanner = true
-                    } label: {
-                        Image(systemName: "barcode.viewfinder")
-                    }
-                }
-
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Button(action: { viewModel.showStats.toggle() }) {
@@ -68,13 +59,6 @@ struct SearchView: View {
                     } label: {
                         Image(systemName: "ellipsis.circle")
                     }
-                }
-            }
-            .sheet(isPresented: $showingScanner) {
-                BarcodeScannerView { scannedCode in
-                    // Handle scanned code
-                    viewModel.searchText = scannedCode
-                    showingScanner = false
                 }
             }
             .task {

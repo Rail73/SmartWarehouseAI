@@ -43,13 +43,24 @@ class DatabaseManager {
                 t.column("updatedAt", .datetime).notNull()
             }
 
+            // Create Warehouses table
+            try db.create(table: "warehouses", ifNotExists: true) { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("name", .text).notNull()
+                t.column("warehouseDescription", .text)
+                t.column("createdAt", .datetime).notNull()
+                t.column("updatedAt", .datetime).notNull()
+            }
+
             // Create Stock table
             try db.create(table: "stocks", ifNotExists: true) { t in
                 t.autoIncrementedPrimaryKey("id")
                 t.column("itemId", .integer).notNull()
                     .references("items", onDelete: .cascade)
                 t.column("quantity", .integer).notNull()
-                t.column("location", .text)
+                t.column("warehouseId", .integer)
+                    .references("warehouses", onDelete: .setNull)
+                t.column("location", .text) // Deprecated: kept for migration
                 t.column("minQuantity", .integer)
                 t.column("maxQuantity", .integer)
                 t.column("updatedAt", .datetime).notNull()
@@ -79,6 +90,7 @@ class DatabaseManager {
             // Create indexes
             try db.create(index: "idx_items_sku", on: "items", columns: ["sku"], ifNotExists: true)
             try db.create(index: "idx_stocks_itemId", on: "stocks", columns: ["itemId"], ifNotExists: true)
+            try db.create(index: "idx_stocks_warehouseId", on: "stocks", columns: ["warehouseId"], ifNotExists: true)
             try db.create(index: "idx_kits_sku", on: "kits", columns: ["sku"], ifNotExists: true)
             try db.create(index: "idx_parts_kitId", on: "parts", columns: ["kitId"], ifNotExists: true)
             try db.create(index: "idx_parts_itemId", on: "parts", columns: ["itemId"], ifNotExists: true)

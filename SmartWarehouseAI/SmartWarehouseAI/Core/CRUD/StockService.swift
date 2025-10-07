@@ -256,4 +256,17 @@ class StockService {
                 .fetchAll(db)
         }
     }
+
+    // MARK: - Fetch by Item
+
+    /// Fetch all stock records for a specific item
+    func fetchByItem(_ itemId: Int64) async throws -> [Stock] {
+        guard let db = dbManager.getDatabase() else { return [] }
+
+        return try await db.read { db in
+            try Stock
+                .filter(Column("itemId") == itemId)
+                .fetchAll(db)
+        }
+    }
 }

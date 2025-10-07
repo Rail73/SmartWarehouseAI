@@ -252,6 +252,8 @@ struct ScanResultView: View {
                     Text("Item #\(id)")
                 case .kit(let id):
                     Text("Kit #\(id)")
+                case .warehouse(let id):
+                    Text("Warehouse #\(id)")
                 }
             }
 
@@ -284,6 +286,9 @@ struct ScanResultView: View {
                     navigateToItem = id
                 case .kit(let id):
                     navigateToKit = id
+                case .warehouse:
+                    // Warehouse navigation handled separately
+                    break
                 }
             } label: {
                 Text("View Details")
